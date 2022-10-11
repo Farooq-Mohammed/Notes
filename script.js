@@ -11,9 +11,9 @@ var heads = JSON.parse(localStorage.getItem("heads"));
 const helpBtn = document.getElementById("help");
 
 
-document.addEventListener("mouseup", (e) => {
-	console.log(e.target)
-});
+// document.addEventListener("mouseup", (e) => {
+// 	console.log(e.target)
+// });
 
 //EVENT LISTENER
 
@@ -60,7 +60,7 @@ function addNewNote(text = "",index) {
 	const textArea = note.querySelector("textarea");
 
 	textArea.value = text;
-	main.innerHTML = `<marked>${text}</marked>`;
+	main.innerHTML = marked.parse(text);
 
 
 	//EVENT LISTENER
@@ -103,8 +103,7 @@ function addNewNote(text = "",index) {
 
 	textArea.addEventListener("input", (e) => {
 		const { value } = e.target;
-		// const currNote = note;
-		main.innerHTML = marked(value);
+		main.innerHTML = marked.parse(value);
 		updateLS();
 	});
 

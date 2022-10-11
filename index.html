@@ -1,48 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script 
-			async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5811101511997871"
-     			crossorigin="anonymous">
+
+<head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5811101511997871"
+		crossorigin="anonymous">
 		</script>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="icon"
-			href="./Icons/Title.png"
-			style="height: 20px; width: 20px"
-		/>
-		<title>Notes App</title>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-		/>
-		<link rel="stylesheet" href="style.css" />
-		
-		<script
-			async
-			src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"
-		></script>
-		
-		<script src="script.js" defer></script>
-	</head>
-	<body>
-		<button class="add" id="add">
-			<i class="fas fa-plus-square"></i>
-			Add Note
-		</button>
-	</body>
-	<footer>
-		<div class="f1">
-			<a href="https://www.instagram.com/staykirak_/" target="_blank"
-				><img src="./Icons/IG.png" alt="Instagram" style="height: 25px"
-			/></a>
-		</div>
-		<div class="f2">
-			<a href="https://github.com/staykirak" target="_blank"
-				><img src="./Icons/GH.png" alt="Github" style="height: 25px"
-			/></a>
-		</div>
-	</footer>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="./Icons/Title.png" style="height: 20px; width: 20px" />
+	<title>Notes App</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<script async src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"></script>
+
+	<script src="script.js" defer></script>
+</head>
+
+<body>
+	<button class="help-btn" id="help">?</button>
+	<button class="add" id="add">
+		<i class="fas fa-plus-square"></i>
+		Add Note
+	</button>
+	<div class="h hide">
+
+		<h2 id="basic-syntax">Basic Syntax</h2>
+
+		<table class="table table-bordered">
+			<thead class="thead-light">
+				<tr>
+					<th>Element</th>
+					<th>Markdown Syntax</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a id="/basic-syntax/#headings">Heading</a></td>
+					<td><code># H1<br />
+				## H2<br />
+				### H3</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#bold">Bold</a></td>
+					<td><code>**bold text**</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#italic">Italic</a></td>
+					<td><code>*italicized text*</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#blockquotes-1">Blockquote</a></td>
+					<td><code>&gt; blockquote</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#ordered-lists">Ordered List</a></td>
+					<td><code>
+				1. First item<br />
+				2. Second item<br />
+				3. Third item<br />
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#unordered-lists">Unordered List</a></td>
+					<td>
+						<code>
+				- First item<br />
+				- Second item<br />
+				- Third item<br />
+				</code>
+					</td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#code">Code</a></td>
+					<td><code>`code`</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#horizontal-rules">Horizontal Rule</a></td>
+					<td><code>---</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#links">Link</a></td>
+					<td><code>[title](https://www.example.com)</code></td>
+				</tr>
+				<tr>
+					<td><a id="/basic-syntax/#images-1">Image</a></td>
+					<td><code>![alt text](image.jpg)</code></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 id="extended-syntax">Extended Syntax</h2>
+
+		<table class="table table-bordered">
+			<thead class="thead-light">
+				<tr>
+					<th>Element</th>
+					<th>Markdown Syntax</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a id="/extended-syntax/#tables">Table</a></td>
+					<td><code>
+				| Syntax      | Description |<br />
+				| ----------- | ----------- |<br />
+				| Header      | Title       |<br />
+				| Paragraph   | Text        |
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#fenced-code-blocks">Fenced Code Block</a></td>
+					<td><code>```<br />
+			{<br />
+			&nbsp;&nbsp;"firstName": "John",<br />
+			&nbsp;&nbsp;"lastName": "Smith",<br />
+			&nbsp;&nbsp;"age": 25<br />
+			}<br />
+			```
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#footnotes">Footnote</a></td>
+					<td><code>
+				Here's a sentence with a footnote. [^1]<br /><br />
+				[^1]: This is the footnote.
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#heading-ids">Heading ID</a></td>
+					<td><code>### My Great Heading {#custom-id}</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#definition-lists">Definition List</a></td>
+					<td><code>
+				term<br />
+				: definition
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#strikethrough">Strikethrough</a></td>
+					<td><code>~~The world is flat.~~</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#task-lists">Task List</a></td>
+					<td><code>
+				- [x] Write the press release<br />
+				- [ ] Update the website<br />
+				- [ ] Contact the media
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#emoji">Emoji</a><br />(see also <a
+							id="/extended-syntax/#copying-and-pasting-emoji">Copying and Pasting Emoji</a>)</td>
+					<td><code>
+				That is so funny! :joy:
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#highlight">Highlight</a></td>
+					<td><code>
+				I need to highlight these ==very important words==.
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#subscript">Subscript</a></td>
+					<td><code>
+				H~2~O
+			</code></td>
+				</tr>
+				<tr>
+					<td><a id="/extended-syntax/#superscript">Superscript</a></td>
+					<td><code>
+				X^2^
+			</code></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+<footer>
+	<div class="f1">
+		<a href="https://www.instagram.com/staykirak_/" target="_blank"><img src="./Icons/IG.png" alt="Instagram"
+				style="height: 25px" /></a>
+	</div>
+	<div class="f2">
+		<a href="https://github.com/staykirak" target="_blank"><img src="./Icons/GH.png" alt="Github"
+				style="height: 25px" /></a>
+	</div>
+</footer>
+
 </html>

@@ -1,11 +1,19 @@
+
+
+
 //SELECTOR
 const addBtn = document.getElementById("add");
 
 const notes = JSON.parse(localStorage.getItem("notes"));
 
-var headarr = JSON.parse(localStorage.getItem("heads"));
+var heads = JSON.parse(localStorage.getItem("heads"));
 
 const helpBtn = document.getElementById("help");
+
+
+document.addEventListener("mouseup", (e) => {
+	console.log(e.target)
+});
 
 //EVENT LISTENER
 
@@ -16,11 +24,11 @@ addBtn.addEventListener("click", (e) => {
 //FUNCTION
 
 if (notes) {
-	const len=notes.length;
-	// console.log(len);
+	
 	notes.forEach((note,index) => {
 		addNewNote(note,index);
 	});
+
 }
 
 
@@ -31,7 +39,7 @@ function addNewNote(text = "",index) {
         <div class="notes">
 			<div class="head-container">
 				<div class="head">
-					<a class="heading">${index<headarr.length?headarr[index]:"Note"}</a>
+					<a class="heading">${(heads !== null && index<heads.length)?heads[index]:"Note"}</a>
 				</div>
 				<div class="tools">
 					<button class="download"><i class="fas fa-download"></i></button>
@@ -52,15 +60,16 @@ function addNewNote(text = "",index) {
 	const textArea = note.querySelector("textarea");
 
 	textArea.value = text;
-	main.innerHTML = marked(text);
+	main.innerHTML = `<marked>${text}</marked>`;
+
 
 	//EVENT LISTENER
 
 	heading.addEventListener("dblclick", (e) =>{
 		var head= prompt("Enter name here");
 		if(head!=null){
-		note.querySelector(".heading").innerHTML=head;
-		updateheadLs(note);
+			note.querySelector(".heading").innerHTML=head;
+			updateLS();
 		}
 	});
 
@@ -94,7 +103,7 @@ function addNewNote(text = "",index) {
 
 	textArea.addEventListener("input", (e) => {
 		const { value } = e.target;
-		const currNote = note;
+		// const currNote = note;
 		main.innerHTML = marked(value);
 		updateLS();
 	});
@@ -117,8 +126,16 @@ function downloadNote(content,currNote) {
 };
 
 function updateLS() {
+
+	const headText = document.querySelectorAll(".heading");
+	const heads=[]
+
+	headText.forEach(head => {
+		heads.push(head.innerText);
+	});
+	localStorage.setItem("heads", JSON.stringify(heads));
 	
-	const notesText = document.querySelectorAll("textarea");
+	const notesText = document.querySelectorAll(".area");
 	const notes=[]
 	
 	notesText.forEach((note) => {
@@ -128,19 +145,18 @@ function updateLS() {
 
 }
 
-var heads=[];
-function updateheadLs(currNote){
-	if(localStorage.getItem('heads')){
-		console.log(JSON.parse(localStorage.getItem('heads')));
-		heads=JSON.parse(localStorage.getItem('heads'));
+// function updateLS(currNote){
+// 	if(localStorage.getItem('heads')){
+// 		console.log(JSON.parse(localStorage.getItem('heads')));
+// 		heads=JSON.parse(localStorage.getItem('heads'));
 		
-	}
-	const head = currNote.querySelector('.heading');
+// 	}
+// 	const head = currNote.querySelector('.heading');
 	
-	// console.log(head.innerText);
-	heads.push(head.innerText);
-	localStorage.setItem("heads",JSON.stringify(heads));
-}
+// 	console.log(head.innerText);
+// 	heads.push(head.innerText);
+// 	localStorage.setItem("heads",JSON.stringify(heads));
+// }
 
 const hel = document.querySelector('.help-btn');
 document.addEventListener('mouseup', function (e) {

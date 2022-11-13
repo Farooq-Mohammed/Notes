@@ -169,6 +169,31 @@ document.addEventListener('mouseup', function (e) {
 	}
 });
 
+// keyboard commands
+document.addEventListener("keydown", (e) => {
+  var container = document.querySelector(".h");
+
+  // help
+  if (e.key === "?") {
+    if (e.target.className == "" && container.classList.contains("hide"))
+      container.classList.remove("hide");
+    else if (!container.classList.contains("hide")) {
+      container.classList.add("hide");
+    }
+  } else if (e.key === "Escape") {
+    if (!container.classList.contains("hide")) {
+      container.classList.add("hide");
+    }
+  }
+
+  // Add new note
+  if (e.ctrlKey && e.key == "i") {
+    if (!container.classList.contains("hide")) container.classList.add("hide");
+    addNewNote();
+  }
+});
+
+
 function headingAlert(){
 	
 }

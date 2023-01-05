@@ -42,6 +42,7 @@ function addNewNote(text = "",index) {
 					<a class="heading">${(heads !== null && index<heads.length)?heads[index]:"Note"}</a>
 				</div>
 				<div class="tools">
+					<button class="copy"><i class="fas fa-copy"></i></button>
 					<button class="download"><i class="fas fa-download"></i></button>
 					<button class="edit"><i class="fas fa-edit"></i></button>
 					<button class="delete"><i class="fas fa-trash-alt"></i></button>
@@ -52,6 +53,7 @@ function addNewNote(text = "",index) {
 		</div>
         `;
 	const downloadBtn = note.querySelector(".download");
+	const copyBtn = note.querySelector(".copy");
 	const editBtn = note.querySelector(".edit");
 	const deleteBtn = note.querySelector(".delete");
 	const heading=note.querySelector(".heading");
@@ -71,6 +73,11 @@ function addNewNote(text = "",index) {
 			note.querySelector(".heading").innerHTML=head;
 			updateLS();
 		}
+	});
+
+	copyBtn.addEventListener("click", (e) => {
+		const content = textArea.value;
+		navigator.clipboard.writeText(content);
 	});
 
 	downloadBtn.addEventListener("click", (e) => {

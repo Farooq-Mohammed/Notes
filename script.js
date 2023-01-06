@@ -42,10 +42,10 @@ function addNewNote(text = "",index) {
 					<a class="heading">${(heads !== null && index<heads.length)?heads[index]:"Note"}</a>
 				</div>
 				<div class="tools">
-					<button class="copy"><i class="fas fa-copy"></i></button>
-					<button class="download"><i class="fas fa-download"></i></button>
-					<button class="edit"><i class="fas fa-edit"></i></button>
-					<button class="delete"><i class="fas fa-trash-alt"></i></button>
+					<button class="copy" title="Copy to Clipboard"><i class="fas fa-copy"></i></button>
+					<button class="download" title="Download"><i class="fas fa-download"></i></button>
+					<button class="edit" title="Edit"><i class="fas fa-edit"></i></button>
+					<button class="delete" title="Delete"><i class="fas fa-trash-alt"></i></button>
 				</div>
 			</div>
 			<div class="text ${text ? "" : "hidden"}"></div>
